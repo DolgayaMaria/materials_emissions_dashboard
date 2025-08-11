@@ -14,7 +14,8 @@ It is possible to:
 - Python 3.8 or higher
 - Install required packages:
 
-pip install pandas geopandas numpy rasterio netCDF4 matplotlib seaborn plotly dash jupyter-dash
+'''bash
+pip install pandas geopandas numpy rasterio netCDF4 matplotlib seaborn plotly dash jupyter-dash'''
 
 ---
 
