@@ -2,10 +2,10 @@
 
 This repository hosts a Dash application for interactive exploration of material stocks and CO₂ emissions across Norwegian municipalities.
 
-You can:
-- Switch between real-life, worst-case, and best-case scenarios.
-- Select different metrics.
-- Drill down by municipality or material type.
+It is possible to:
+- Switch between real-life, worst-case and best-case scenarios
+- Select different metrics
+- Drill down by municipality or material type
 
 ---
 
@@ -30,7 +30,7 @@ pip install pandas geopandas numpy rasterio netCDF4 matplotlib seaborn plotly da
 
 ### 2. Merged CSV
 - File name: merged_df_dashboard.csv
-- Structure: One row per combination of municipality, material, energy carrier, building type, and cohort.
+- Structure: One row per combination of municipality, material, energy carrier, building type and cohort.
 - Required columns:
   - kommunenum — string, zero-padded to 4 digits
   - energy_carrier — e.g. "TOTAL", "electricity", etc.
