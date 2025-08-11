@@ -14,8 +14,9 @@ It is possible to:
 - Python 3.8 or higher
 - Install required packages:
 
-'''bash
-pip install pandas geopandas numpy rasterio netCDF4 matplotlib seaborn plotly dash jupyter-dash'''
+```bash
+pip install pandas geopandas numpy rasterio netCDF4 matplotlib seaborn plotly dash jupyter-dash
+```
 
 ---
 
@@ -54,7 +55,9 @@ pip install pandas geopandas numpy rasterio netCDF4 matplotlib seaborn plotly da
 
 From the command line, navigate to the project root and execute:
 
+```bash
 python dashboard.py
+```
 
 If successful, you should see output like:
 
