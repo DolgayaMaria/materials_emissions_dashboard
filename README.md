@@ -11,7 +11,7 @@ It is possible to:
 
 ## Prerequisites
 
-- Python 3.8 or higher
+- Python 3.11.5 or higher
 - Install required packages:
 
 ```bash
