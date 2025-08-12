@@ -58,7 +58,7 @@ pip install pandas geopandas plotly dash jupyter-dash
 ---
 
 ## Project Folder Structure
-
+```
 /your-project-root
 │
 ├── dashboard.py                  # Main Dash application script
@@ -70,7 +70,7 @@ pip install pandas geopandas plotly dash jupyter-dash
 │   └── ...                      # Other shapefile support files                      
 ├── requirements.txt             # (Optional) List of required Python packages
 └── README.md 
-
+```
 ---
 
 ## Running the Dashboard
