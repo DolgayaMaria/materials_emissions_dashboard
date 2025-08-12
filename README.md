@@ -57,6 +57,22 @@ pip install pandas geopandas plotly dash jupyter-dash
 
 ---
 
+## Project Folder Structure
+
+/your-project-root
+│
+├── dashboard.py                  # Main Dash application script
+├── merged_df_dashboard.csv       # Merged data CSV (municipality, materials, emissions)
+├── /shapefiles                   # Folder containing municipality shapefile components
+│   ├── municipalities.shp
+│   ├── municipalities.dbf
+│   ├── municipalities.shx
+│   └── ...                      # Other shapefile support files                      
+├── requirements.txt             # (Optional) List of required Python packages
+└── README.md 
+
+---
+
 ## Running the Dashboard
 
 From the command line, navigate to the project root and execute:
