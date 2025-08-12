@@ -9,6 +9,12 @@ It is possible to:
 
 ---
 
+## Objective
+
+The objective of the dashboard is to provide an interactive and user-friendly tool that enables local stakeholders, researchers and policymakers to explore and analyze material stocks and associated CO₂ emissions across Norwegian municipalities. By offering scenario comparisons, customizable metrics, and detailed breakdowns by municipality and material type, the dashboard supports informed decision-making aimed at sustainable resource management and climate impact reduction.
+
+---
+
 ## Prerequisites
 
 - Python 3.11.5 or higher
