@@ -40,7 +40,7 @@ pip install pandas geopandas plotly dash jupyter-dash
 - File name: merged_df_dashboard.csv
 - Structure: One row per combination of municipality, material, energy carrier, building type and cohort.
 - Required columns:
-  - kommunenum — string, zero-padded to 4 digits
+  - kommunenum (municipality code) — string, zero-padded to 4 digits
   - energy_carrier — e.g. "TOTAL", "electricity", etc.
   - material — e.g. "TOTAL", "steel", "concrete", etc.
   - type — building type (e.g. single-family house (SFH), apartment block (AB))
