@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import numpy as np
 import geopandas as gpd
 import plotly.express as px
 from dash import html, dcc, Input, Output, ctx, no_update
@@ -8,12 +9,12 @@ import dash
 
 # ─── LOAD DATA ────────────────────────────────────────────────────────────────
 # Load preprocessed dashboard dataset
-df = pd.read_csv("merged_df_dashboard.csv", low_memory=False)
+df = pd.read_csv("data/merged_df_dashboard.csv", low_memory=False)
 df.loc[:, df.columns.str.startswith('manufacturing_emissions_')] /= 10
 
 # Load municipalities shapefile (for map boundaries)
 municipals = gpd.read_file(
-    '/Users/dolgayamaria/Thesis/Practical Part/Data/ssb_municipalities_masks/Kommuner 2024.shp'
+    'data/ssb_municipalities_masks/Kommuner 2024.shp'
 )
 municipals["kommunenum"] = municipals["kommunenum"].astype(str).str.zfill(4)
 df["kommunenum"] = df["kommunenum"].astype(str).str.zfill(4)
@@ -191,12 +192,14 @@ def update_dashboard(scenario, metric, selected_muni, selected_material):
 
     # Scale map values
     df_map[value_col] = (df_map[value_col] / divisor).round(1)
+    # Avoid log of zero or negative values
+    df_map["log_" + value_col] = np.log10(df_map[value_col].clip(lower=1e-6))  
 
     # Build map figure
     fig_map = px.choropleth_mapbox(
         df_map, geojson=muni_geojson, locations="kommunenum",
-        featureidkey="properties.kommunenum", color=value_col,
-        color_continuous_scale="Viridis", mapbox_style="carto-positron",
+        featureidkey="properties.kommunenum", color="log_" + value_col,  # use log-transformed column,
+        color_continuous_scale="viridis", mapbox_style="carto-positron",
         zoom=3.5, center={"lat": 64, "lon": 15}, opacity=0.6,
         title=map_title, labels={value_col: unit_label},
         hover_data={"kommunenum": True, "kommunenav": True, value_col: True}
@@ -217,7 +220,12 @@ def update_dashboard(scenario, metric, selected_muni, selected_material):
 
     fig_map.update_layout(
         title={"text": map_title, "x": 0.01, "xanchor": "left", "font": {"size": 16}},
-        margin={"r": 0, "t": 30, "l": 0, "b": 0}
+        margin={"r": 0, "t": 30, "l": 0, "b": 0},
+        coloraxis_colorbar=dict(
+            title=unit_label,
+            tickvals=np.log10([1, 10, 100, 1000, 10000, 100000]),  # adjust to your value range
+            ticktext=["1", "10", "100", "1000", "10000", "100000"]   # original values for readability
+        )
     )
 
     # 🔹 Filter dataset for summary + bar charts
