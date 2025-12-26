@@ -72,8 +72,9 @@ pip install pandas geopandas plotly dash jupyter-dash
         ├── municipalities.dbf
         ├── municipalities.shx
         └── ...                   # Other shapefile support files
----
 ```
+---
+
 ## Running the Dashboard
 
 From the command line, navigate to the project root and execute:
